@@ -14,9 +14,17 @@ def get_weather() -> None:
     location = response.json()["location"]
     current = response.json()["current"]
 
-    print(f"{location["name"]}/{location["country"]} {location["localtime"]} "
-          f"Weather: {current["temp_c"]} Celsius, "
-          f"{current["condition"]["text"]}")
+    name = location["name"]
+    country = location["country"]
+    localtime = location["localtime"]
+
+    temp = current["temp_c"]
+    condition = current["condition"]["text"]
+
+    print(
+        f"{name}/{country} {localtime} "
+        f"Weather: {temp} Celsius, {condition}"
+    )
 
 
 if __name__ == "__main__":
